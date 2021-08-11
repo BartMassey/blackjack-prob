@@ -3,12 +3,10 @@ Bart Massey 2021
 
 Inspired by
 [this Reddit post](https://www.reddit.com/r/dailyprogrammer_ideas/comments/p04977/probability_for_blackjack_medium/),
-I wrote two Python 3 programs that calculate the probability
+I wrote several Python 3 programs that calculate the probability
 of getting a 21 in
 [Blackjack](https://en.wikipedia.org/wiki/Blackjack) after
-drawing *n* cards. Since official Blackjack rules call for a
-loss after 5 cards, the programs produce results for 2, 3, 4
-and 5 cards.
+drawing *n* cards. 
 
 * `bjs.py` runs one million simulated Blackjack games, and
   produces the probability estimates from this simulation.
@@ -41,6 +39,17 @@ and 5 cards.
         3 10152 132344 7.67091821314151
         4 257280 6424544 4.004642197173839
         5 3794208 311875200 1.2165789392680149
+
+* `bjbp.py` computes the exact probability of a drawn hand
+  of exactly 5 cards containing a 21, as though playing this
+  as a Blackjack-like game. It runs in about 7s on my box.
+
+        n wins  trials  percent
+
+        5 37624 2598960 1.4476559854711115
+
+  This agrees with [a computation](https://www.reddit.com/r/dailyprogrammer_ideas/comments/p04977/probability_for_blackjack_medium/h85odqn) by Redditor
+  [/u/Rik07](http://reddit.com/u/Rik07).
 
 Getting the simulation and the exact calculation to match
 reasonably is always the challenge in this kind of problem.
