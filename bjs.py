@@ -1,4 +1,4 @@
-# Estimate probabilities for achieving a Blackjack in 2..5
+# Estimate probabilities for achieving a 21 in Blackjack in 2..5
 # cards by simulating games.
 # Bart Massey 2021
 
@@ -24,7 +24,7 @@ def value(card):
     # Face card.
     return {10}
 
-# Total number of blackjacks so far, indexed by number of
+# Total number of 21s so far, indexed by number of
 # cards to get them.
 bj_cards = [0] * 6
 
@@ -41,7 +41,7 @@ def game():
         val = value(c)
         score = {s + v for s in score for v in val if s + v <= 21}
 
-        # Hit a blackjack, so done.
+        # Hit 21, so done.
         if 21 in score:
             bj_cards[i] += 1
             return

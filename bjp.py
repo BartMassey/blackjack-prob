@@ -1,4 +1,4 @@
-# Compute exact probabilities for achieving a Blackjack in 2..5 cards.
+# Compute exact probabilities for achieving a 21 in Blackjack in 2..5 cards.
 # Bart Massey 2021
 
 from math import factorial, comb
@@ -22,7 +22,7 @@ def value(card):
 
 # For each number of already-drawn cards, compute the number
 # of remaining draws (assuming a 5-card draw) "controlled"
-# by this count. This allows early termination on blackjack
+# by this count. This allows early termination on 21
 # or bustout while still keeping the count correct.
 f47 = factorial(52 - 5)
 derate = [ factorial(52 - (5 - i)) // f47 for i in range(0, 6) ]
@@ -43,7 +43,7 @@ def prob21(deck, cur, ncards):
     global ndraws
 
     # We have reached the target number of draws.
-    # Return whether or not we just reached a blackjack,
+    # Return whether or not we just reached 21,
     # and count 1.
     if ncards == 0:
         ndraws += 1
@@ -52,7 +52,7 @@ def prob21(deck, cur, ncards):
         else:
             return 0, 1
 
-    # We have busted out, or hit blackjack early.
+    # We have busted out, or hit 21 early.
     # Return zero, and count the number of hands
     # that would have been evaluated if we had
     # continued to the root.

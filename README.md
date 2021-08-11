@@ -4,13 +4,13 @@ Bart Massey 2021
 Inspired by
 [this Reddit post](https://www.reddit.com/r/dailyprogrammer_ideas/comments/p04977/probability_for_blackjack_medium/),
 I wrote two Python 3 programs that calculate the probability
-of getting a
-[blackjack](https://en.wikipedia.org/wiki/Blackjack) after
+of getting a 21 in
+[Blackjack](https://en.wikipedia.org/wiki/Blackjack) after
 drawing *n* cards. Since official Blackjack rules call for a
 loss after 5 cards, the programs produce results for 2, 3, 4
 and 5 cards.
 
-* `bjs.py` runs one million simulated blackjack games, and
+* `bjs.py` runs one million simulated Blackjack games, and
   produces the probability estimates from this simulation.
   The program runs in about 13s on my box, and produced the
   following results in a typical run.
