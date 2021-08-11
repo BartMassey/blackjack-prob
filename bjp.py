@@ -24,7 +24,8 @@ def value(card):
 # of remaining draws (assuming a 5-card draw) "controlled"
 # by this count. This allows early termination on blackjack
 # or bustout while still keeping the count correct.
-derate = [ factorial(i) * comb(52 - (5 - i), i) for i in range(0, 6) ]
+f47 = factorial(52 - 5)
+derate = [ factorial(52 - (5 - i)) // f47 for i in range(0, 6) ]
 
 
 # Counts the number of draws at which a position terminated,
