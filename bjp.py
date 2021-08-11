@@ -12,13 +12,18 @@ def value(card):
 
 derate = [ factorial(i) * comb(52 - (5 - i), i) for i in range(0, 6) ]
 
+nleaves = 0
+
 def prob21(deck, cur, ncards):
+    global nleaves
     if ncards == 0:
+        nleaves += 1
         if 21 in cur:
             return 1, 1
         else:
             return 0, 1
     if not cur or 21 in cur:
+        nleaves += 1
         return 0, derate[ncards]
     nw, nt = 0, 0
     for c in deck:
@@ -33,3 +38,4 @@ def prob21(deck, cur, ncards):
 for i in range(2, 6):
     w, t = prob21(deck, {0}, i)
     print(i, w, t, 100 * w / t)
+print(nleaves)
